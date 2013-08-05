@@ -1,0 +1,31 @@
+<h1>Jokes</h1>
+
+<%= link_to "List of users", users_path %>
+
+<table class="table content-table">
+  <thead>
+    <tr>
+      <th>Joke</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jokes.each do |joke| %>
+      <tr>
+        <td><%= joke.description %></td>
+        <td><%= joke.user.name %></td>
+        <td><%= link_to 'Show', joke, :class => 'btn btn-primary btn-small' %></td>
+        <td><%= link_to 'Edit', edit_joke_path(joke), :class => 'btn btn-warning btn-small' %></td>
+        <td><%= link_to 'Destroy', joke, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-small' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Joke', new_joke_path, :class => 'btn btn-primary btn-large' %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @joke.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= link_to @joke.user.name, @joke.user %>
+</p>
+
+<%= link_to 'Edit', edit_joke_path(@joke) %> |
+<%= link_to 'Back', jokes_path %>
